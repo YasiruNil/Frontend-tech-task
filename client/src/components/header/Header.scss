@@ -1,0 +1,6 @@
+@use '../../style/sheared' as variable;
+
+.header-height {
+    color: red;
+    height: variable.$header-height;
+}

@@ -1,4 +1,7 @@
-@import './style/global.scss';
+@use '../components/header/Header.scss';
+@use '../components/Sidebar/Sidebar.scss';
+@use '../layouts/mainLayout/MainLayout.scss';
+
 
 
 body {
@@ -19,7 +22,7 @@ body {
       'footer footer footer';
     margin: 6px;
   }
-  
+ 
   .page > * {
     padding: 10px;
   }

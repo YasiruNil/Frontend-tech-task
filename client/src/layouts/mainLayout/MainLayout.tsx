@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { Header } from "../../components/header/Header";
+import { Sidebar } from "../../components/sidebar/Sidebar";
 
 function MainLayout() {
   const { innerWidth: width } = window;
@@ -24,8 +26,15 @@ function MainLayout() {
   }, [handleResize]);
 
   return (
-    <div>
-      <Outlet context={{ isNavShow: showNav }} />{width}
+    <div className="main-layout-wrapper">
+      {/* Header */}
+      <Header />
+      <div className="main-layout-body">
+        {/* Sidebar */}
+        <Sidebar />
+        {/* Main page */}
+        <Outlet context={{ isNavShow: showNav }} />
+      </div>
     </div>
   );
 }

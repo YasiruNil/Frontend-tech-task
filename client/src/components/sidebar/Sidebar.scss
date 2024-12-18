@@ -1,0 +1,5 @@
+@use '../../style/sheared' as variable;
+
+.sidebar-wrapper {
+  width: variable.$sidebar-width;
+}

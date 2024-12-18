@@ -2,15 +2,22 @@ import React from "react";
 import Providers from "./redux/Provider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import MainLayout from "./layouts/MainLayout";
+
 import NotFound from "./routes/NotFound";
+import MainPage from "./routes/MainPage";
+import MainLayout from "./layouts/mainLayout/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     errorElement: <NotFound />,
-    children: [],
+    children: [
+      {
+        path: "",
+        element: <MainPage />,
+      },
+    ],
   },
 ]);
 
