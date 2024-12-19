@@ -1,14 +1,25 @@
-import express, { Application } from 'express';
+import express, { Application } from "express";
 import { graphqlHTTP } from "express-graphql";
-import {schema} from './graphql/schemas'
+import { getCategoriesSchema, schema } from "./graphql/schemas";
 
 const app: Application = express();
 
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  graphiql: true,
-}));
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    graphiql: true,
+  })
+);
+
+app.use(
+  "/category",
+  graphqlHTTP({
+    schema: getCategoriesSchema,
+    graphiql: true,
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT)
+app.listen(PORT);

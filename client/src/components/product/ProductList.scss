@@ -1,0 +1,11 @@
+.product-list {
+  height: 100%;
+  overflow-y: auto;
+  width: calc(100vw - 280px);
+
+  .article-wrapper {
+    display: grid;
+    grid-gap: 26px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

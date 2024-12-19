@@ -2,4 +2,34 @@
 
 .sidebar-wrapper {
   width: variable.$sidebar-width;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .list-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .list {
+        height: 64px;
+        width: 240px;
+        display: flex;
+        margin-top: 14px;
+        border-radius: 8px;
+        align-items: center;
+        justify-content: start;
+        border: 2px solid variable.$default-border-color;
+
+        .title {
+          font-size: 16px;
+          font-weight: 500;
+          color: variable.$title-color;
+        }
+      }
+    }
+  }
 }

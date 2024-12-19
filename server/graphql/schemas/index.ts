@@ -122,3 +122,17 @@ export const schema = new GraphQLSchema({
     }),
   }),
 });
+
+export const getCategoriesSchema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: "Query",
+    description: "Root Query",
+    fields: () => ({
+      categories: {
+        type: new GraphQLList(Category),
+        description: "List of Categories",
+        resolve: () => categories,
+      },
+    }),
+  }),
+});
