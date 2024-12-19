@@ -41,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "sass": "^1.83.0"
   }
 }

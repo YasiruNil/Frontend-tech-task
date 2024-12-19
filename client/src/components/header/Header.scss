@@ -3,4 +3,5 @@
 .header-height {
     color: red;
     height: variable.$header-height;
+    border-bottom: 1px solid variable.$default-border-color;
 }

@@ -6,6 +6,17 @@
   .article-wrapper {
     display: grid;
     grid-gap: 26px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+
+  .category-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-left: 30px;
+  }
+
+  .no-articles {
+    margin: 20px 0;
   }
 }

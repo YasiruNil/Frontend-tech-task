@@ -1,11 +1,13 @@
 @use '../../style/sheared' as variable;
 
 .sidebar-wrapper {
+  border-right: 1px solid variable.$default-border-color;
   width: variable.$sidebar-width;
 
   .container {
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
 
@@ -16,10 +18,11 @@
 
       .list {
         height: 64px;
-        width: 240px;
+        width: 200px;
         display: flex;
         margin-top: 14px;
         border-radius: 8px;
+        padding: 0 20px;
         align-items: center;
         justify-content: start;
         border: 2px solid variable.$default-border-color;

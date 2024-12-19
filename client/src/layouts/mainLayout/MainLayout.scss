@@ -5,6 +5,6 @@
 
     .main-layout-body {
         display: flex;
-        height: calc(100vh - #{variable.$header-height});
+        height: calc(100vh - #{variable.$header-height} - 1px);
     }
 }
