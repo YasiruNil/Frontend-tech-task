@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import {  Skeleton } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+
+import SidebarList from "./sidebarList/SidebarList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchCategories } from "../../redux/slice/category.slice";
-import SidebarList from "./sidebarList/SidebarList";
-import { Button, Skeleton } from "antd";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
 
 export const Sidebar = ({
   isNavShow,

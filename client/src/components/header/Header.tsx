@@ -1,13 +1,15 @@
+
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import { Input } from "antd";
 import { useDebounce } from "use-debounce";
-import { SearchProps } from "antd/es/input";
-import { setSearchValue } from "../../redux/slice/product.slice";
-import { useAppDispatch } from "../../redux/hooks";
 
+import { useAppDispatch } from "../../redux/hooks";
+import { setSearchValue } from "../../redux/slice/product.slice";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [inputValue, setInputValue] = useState("");
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,13 +17,19 @@ export const Header = () => {
   };
   const [debouncedValue] = useDebounce(inputValue, 500);
 
+  const handleSelect = () => {
+    navigate({
+      pathname: "/",
+    });
+  }
+  
   useEffect(() => {
     dispatch(setSearchValue(debouncedValue))
-  }, [debouncedValue]);
+  }, [dispatch,debouncedValue]);
 
   return (
     <div className="header-height">
-      <div>Wisenet tech</div>
+      <div className="header-text" onClick={()=>handleSelect()}>Wisenet tech</div>
       <div>
         <Input
           placeholder="Search Article"

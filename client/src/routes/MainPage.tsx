@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { fetchProducts } from "../redux/slice/product.slice";
-import ProductList from "../components/product/ProductList";
 import { useLocation } from "react-router-dom";
+
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import ProductList from "../components/product/ProductList";
+import { fetchProducts } from "../redux/slice/product.slice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 const MainPage = () => {
   const dispatch = useAppDispatch();

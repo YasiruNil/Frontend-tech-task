@@ -1,6 +1,7 @@
 .product-list {
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   width: calc(100vw - 280px);
 
   &.hide {

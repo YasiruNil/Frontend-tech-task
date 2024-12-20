@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
 import Providers from "./redux/Provider";
+import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import NotFound from "./routes/NotFound";
 import MainPage from "./routes/MainPage";
 import MainLayout from "./layouts/mainLayout/MainLayout";
-import { Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,10 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import Search from "antd/es/transfer/search";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  Category,
+  ProductsPayload,
+  ProductState,
+} from "../../types/product.types";
 
 // Set Initial State
 const initialState = {
@@ -10,7 +14,7 @@ const initialState = {
     list: [],
   },
   searchValue: "",
-};
+} as ProductState;
 
 // Define GraphQL query
 const GET_PRODUCTS = gql`
@@ -42,14 +46,14 @@ const GET_PRODUCTS = gql`
 export const fetchProducts = createAsyncThunk(
   "categories/fetchProducts",
   async () => {
-    const response = await new ApolloClient({
+    const response: ProductsPayload = await new ApolloClient({
       uri: "http://localhost:3000/graphql",
       cache: new InMemoryCache(),
     }).query({
       query: GET_PRODUCTS,
     });
-    
-    return response.data?.categories ?? [];
+
+    return response.data.categories || [];
   }
 );
 
@@ -63,21 +67,22 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state) => {
+      .addCase(fetchProducts.pending, (state: ProductState) => {
         state.products.status = "loading";
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.products.status = "succeeded";
-        state.products.list = action.payload;
-      })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(
+        fetchProducts.fulfilled,
+        (state: ProductState, action: PayloadAction<Category[]>) => {
+          state.products.status = "succeeded";
+          state.products.list = action.payload;
+        }
+      )
+      .addCase(fetchProducts.rejected, (state: ProductState) => {
         state.products.status = "failed";
         state.products.errorMessage = "Failed to fetch products";
       });
   },
 });
-
 
 export const { setSearchValue } = productSlice.actions;
 

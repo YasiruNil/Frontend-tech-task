@@ -1,10 +1,16 @@
-@use '../../style/sheared' as variable;
+@use "../../style/sheared" as variable;
 
 .header-height {
-    display: flex;
-    padding: 0 40px;
-    align-items: center;
-    justify-content: space-between;
-    height: variable.$header-height;
-    border-bottom: 1px solid variable.$default-border-color;
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  height: variable.$header-height;
+  border-bottom: 1px solid variable.$default-border-color;
+
+  .header-text {
+    font-size: 24px;
+    min-width: 150px;
+    font-weight: 600;
+  }
 }
