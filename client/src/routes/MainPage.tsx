@@ -3,6 +3,8 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchProducts } from "../redux/slice/product.slice";
 import ProductList from "../components/product/ProductList";
 import { useLocation } from "react-router-dom";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
@@ -10,11 +12,9 @@ const MainPage = () => {
   const queryParams = new URLSearchParams(location.search); // Parse the query string
   const queryValue = queryParams.get('name');
   const {
-    errorMessage,
     status,
     list: productList,
   } = useAppSelector((state) => state.product.products);
-  console.log(errorMessage, status, productList, queryValue);
 
   // fetch all the products
   useEffect(() => {
@@ -28,7 +28,10 @@ const MainPage = () => {
 
   return (
     <>
-      {status === "loading" && <div>Loading...</div>}
+      {status === "loading" && <div className="spin-loader">
+          <Spin indicator={<LoadingOutlined spin />} size="large" />
+          {/* Replace with a spinner */}
+        </div>}
       {status === "succeeded" && <ProductList productList={filteredProductList} />}
     </>
   );

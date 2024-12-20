@@ -1,8 +1,13 @@
 @use '../../style/sheared' as variable;
 
 .sidebar-wrapper {
-  border-right: 1px solid variable.$default-border-color;
+  position: relative;
   width: variable.$sidebar-width;
+  border-right: 1px solid variable.$default-border-color;
+
+  &.hide {
+    width: 40px !important;
+  }
 
   .container {
     height: 100%;
@@ -11,28 +16,75 @@
     flex-direction: column;
     justify-content: space-between;
 
+    &.hide {
+      display: none;
+    }
+
     .list-wrapper {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
 
+      .title {
+        margin: 20px;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 700;
+        color: variable.$title-color;
+      }
+
+      .no-categories{
+        margin: 20px;
+      }
+
       .list {
-        height: 64px;
+        height: 40px;
         width: 200px;
         display: flex;
+        cursor: pointer;
+        padding: 0 20px;
         margin-top: 14px;
         border-radius: 8px;
-        padding: 0 20px;
         align-items: center;
         justify-content: start;
         border: 2px solid variable.$default-border-color;
 
-        .title {
-          font-size: 16px;
-          font-weight: 500;
-          color: variable.$title-color;
+        &:hover, &.active {
+          background-color: #f5f5f5;
+        }
+
+        &.active {
+          color: red;
         }
       }
+
+      .skeleton-wrapper {
+        margin-bottom: 10px;
+        display: flex;
+      }
+
+      .content-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  .collapse-wrapper {
+    top: 10px;
+    right: -16px;
+    position: absolute;
+
+    .collapse-button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      cursor: pointer;
+      border-radius: 50%;
+      background-color: blue;
     }
   }
 }

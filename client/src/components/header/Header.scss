@@ -1,7 +1,10 @@
 @use '../../style/sheared' as variable;
 
 .header-height {
-    color: red;
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
     height: variable.$header-height;
     border-bottom: 1px solid variable.$default-border-color;
 }

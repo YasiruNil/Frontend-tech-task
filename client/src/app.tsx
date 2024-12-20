@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./routes/NotFound";
 import MainPage from "./routes/MainPage";
 import MainLayout from "./layouts/mainLayout/MainLayout";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/category",
         element: <MainPage />,
-      }
+      },
     ],
   },
 ]);
@@ -30,8 +32,11 @@ function App() {
   // Step 2: Use useEffect to detect DOM load event
   useEffect(() => {
     // Check if the DOM is already loaded or not
+    // time out is added to see the loader in action
     if (document.readyState === "complete") {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 700);
     } else {
       // Listen for the 'load' event which triggers when DOM is fully loaded
       window.onload = () => {
@@ -49,8 +54,8 @@ function App() {
     <>
       {/* Step 3: Show loader while DOM is loading */}
       {loading ? (
-        <div className="loader">
-          <p>Loading...</p>
+        <div className="window-loader">
+          <Spin indicator={<LoadingOutlined spin />} size="large" />
           {/* Replace with a spinner */}
         </div>
       ) : (

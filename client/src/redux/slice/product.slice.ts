@@ -1,5 +1,6 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import Search from "antd/es/transfer/search";
 
 // Set Initial State
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
     status: "",
     list: [],
   },
+  searchValue: "",
 };
 
 // Define GraphQL query
@@ -54,7 +56,11 @@ export const fetchProducts = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchValue: (state, action) => {
+      state.searchValue = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -67,9 +73,12 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.products.status = "failed";
-        state.products.errorMessage = "Failed to fetch categories";
+        state.products.errorMessage = "Failed to fetch products";
       });
   },
 });
+
+
+export const { setSearchValue } = productSlice.actions;
 
 export default productSlice.reducer;

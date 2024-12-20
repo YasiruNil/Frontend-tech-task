@@ -4,26 +4,30 @@ import { Header } from "../../components/header/Header";
 import { Sidebar } from "../../components/sidebar/Sidebar";
 
 function MainLayout() {
-  const { innerWidth: width } = window;
   const [showNav, setShowNav] = useState(true);
 
   const handleResize = () => {
-    if (width <= 960) {
+    const { innerWidth: width } = window;
+    if (width <= 968) {
       setShowNav(false);
     } else {
       setShowNav(true);
     }
   };
 
+  const handleCollapse = () => {
+    setShowNav(!showNav);
+  };
+
+  // when user change the window screen size, it will hide the sidebar
   useEffect(() => {
-    if (typeof window != undefined) {
-      window.addEventListener("resize", handleResize);
-    }
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [handleResize]);
+  }, []);
 
   return (
     <div className="main-layout-wrapper">
@@ -31,7 +35,7 @@ function MainLayout() {
       <Header />
       <div className="main-layout-body">
         {/* Sidebar */}
-        <Sidebar />
+        <Sidebar isNavShow={showNav} handleCollapse={() => handleCollapse()} />
         {/* Main page */}
         <Outlet context={{ isNavShow: showNav }} />
       </div>

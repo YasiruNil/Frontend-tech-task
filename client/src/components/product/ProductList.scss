@@ -3,6 +3,10 @@
   overflow-y: auto;
   width: calc(100vw - 280px);
 
+  &.hide {
+    width: calc(100vw - 40px);
+  }
+
   .article-wrapper {
     display: grid;
     grid-gap: 26px;
@@ -10,9 +14,9 @@
   }
 
   .category-title {
+    margin: 30px;
     font-size: 30px;
     font-weight: 700;
-    margin: 30px;
   }
 
   .no-articles {
