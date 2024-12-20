@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 
 import { useAppSelector } from "../../redux/hooks";
 import ProductCart from "./productCart/ProductCart";
-import { Category, ProductState } from "../../types/product.types";
+import { Article, Category, ProductState } from "../../types/product.types";
 
 const ProductList = ({ productList }: { productList: Category[] }) => {
   const { isNavShow } = useOutletContext<{ isNavShow: boolean }>();
@@ -24,7 +24,7 @@ const ProductList = ({ productList }: { productList: Category[] }) => {
                     .toLocaleLowerCase()
                     .includes(searchValue.toLocaleLowerCase())
                 )
-                .map((article: any, index: number) => (
+                .map((article: Article, index: number) => (
                   <ProductCart
                     key={index}
                     cartItem={article}
