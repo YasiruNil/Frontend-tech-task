@@ -57,6 +57,11 @@
         &.active {
           color: red;
         }
+
+        .list-item {
+          display: flex;
+          align-items: center;
+        }
       }
 
       .skeleton-wrapper {

@@ -1,9 +1,11 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const ProductCart = ({ cartItem }: any) => {
+import { Article } from "../../../types/product.types";
+
+const ProductCart = ({ cartItem }: {cartItem:Article}) => {
   return (
-    <div className="product-cart" key={cartItem.id}>
+    <div className="product-cart">
       <LazyLoadImage
         effect="blur"
         style={{ display:'flex', justifyContent:'center', alignItems:'center',borderRadius:'20px', height:'160px',maxWidth:'160px',margin:'10px' }}

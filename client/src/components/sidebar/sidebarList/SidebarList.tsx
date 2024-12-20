@@ -1,12 +1,13 @@
 import React from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
+import { Category } from "../../../types/product.types";
 
-const SidebarList = ({ list }: any) => {
+const SidebarList = ({ list }: { list: Category[] }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search); // Parse the query string
-  const queryValue = queryParams.get('name');
-  
+  const queryValue = queryParams.get("name");
+
   const handleClick = (item: any) => {
     navigate({
       pathname: "category",
@@ -19,9 +20,13 @@ const SidebarList = ({ list }: any) => {
   return (
     <>
       {list &&
-        list.map((item: any,index: number) => (
-          <div key={index} className={`list ${queryValue === item.urlPath ? 'active': ''}`} onClick={() => handleClick(item)}>
-            <div className="flex items-center">
+        list.map((item: any, index: number) => (
+          <div
+            key={index}
+            className={`list ${queryValue === item.urlPath ? "active" : ""}`}
+            onClick={() => handleClick(item)}
+          >
+            <div className="list-item">
               <span>{item.name}</span>
             </div>
           </div>

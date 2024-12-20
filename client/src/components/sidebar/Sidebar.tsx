@@ -5,6 +5,7 @@ import {  Skeleton } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 import SidebarList from "./sidebarList/SidebarList";
+import { CategoryState } from "../../types/product.types";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchCategories } from "../../redux/slice/category.slice";
 
@@ -17,7 +18,7 @@ export const Sidebar = ({
 }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { status, list } = useAppSelector((state) => state.category.categories);
+  const { status, list } = useAppSelector((state:{ category: CategoryState }) => state.category.categories);
 
   const handleCategoryCLick = () => {
     navigate({
@@ -39,7 +40,7 @@ export const Sidebar = ({
           </span>
           {status === "loading" && (
             <div>
-              {[1, 2, 3, 4, 5].map((item, indx) => (
+              {[1, 2, 3, 4, 5].map((_item, indx) => (
                 <div className="skeleton-wrapper" key={indx}>
                   <Skeleton.Node
                     active={true}
