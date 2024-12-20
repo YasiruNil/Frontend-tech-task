@@ -7,7 +7,9 @@ import { Category, ProductState } from "../../types/product.types";
 
 const ProductList = ({ productList }: { productList: Category[] }) => {
   const { isNavShow } = useOutletContext<{ isNavShow: boolean }>();
-  const { searchValue } = useAppSelector((state: { product: ProductState }) => state.product);
+  const { searchValue } = useAppSelector(
+    (state: { product: ProductState }) => state.product
+  );
 
   return (
     <div className={`product-list ${isNavShow ? "" : "hide"}`}>
@@ -23,7 +25,11 @@ const ProductList = ({ productList }: { productList: Category[] }) => {
                     .includes(searchValue.toLocaleLowerCase())
                 )
                 .map((article: any, index: number) => (
-                  <ProductCart key={index} cartItem={article} />
+                  <ProductCart
+                    key={index}
+                    cartItem={article}
+                    categoryId={product.id}
+                  />
                 ))}
 
               {!product.articles.filter((item: { name: string }) =>

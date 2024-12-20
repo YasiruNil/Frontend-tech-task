@@ -1,0 +1,12 @@
+@use '../../style/sheared' as variable;
+
+.main-layout-wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+
+    .main-layout-body {
+        display: flex;
+        min-width: 600px;
+        height: calc(100vh - #{variable.$header-height} - 5px);
+    }
+}

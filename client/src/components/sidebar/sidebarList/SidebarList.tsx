@@ -12,7 +12,7 @@ const SidebarList = ({ list }: { list: Category[] }) => {
     navigate({
       pathname: "category",
       search: createSearchParams({
-        name: `${item.urlPath}`,
+        'name': `${item.urlPath}`,
       }).toString(),
     });
   };

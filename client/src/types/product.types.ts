@@ -1,4 +1,5 @@
 export type Category = {
+  id: number;
   name: string;
   urlPath: string;
   articles: Article[];
@@ -7,6 +8,7 @@ export type Category = {
 };
 
 export type Article = {
+  id: number;
   name: string;
   variantName: string;
   prices: Prices;
@@ -47,11 +49,11 @@ export interface CategoryState {
 export interface ProductsPayload {
   data: {
     categories: Category[];
-  }
+  };
 }
 
 export interface CategoryPayload {
   data: {
     categories: Category[];
-  }
+  };
 }

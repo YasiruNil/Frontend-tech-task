@@ -18,14 +18,40 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .window-loader, .spin-loader {
+  .window-loader, .spin-loader, .product-spinner {
     display: flex;
     height: 100vh;
     align-items: center;
     justify-content: center;
   }
+  
+  .product-spinner {
+    height: calc(100vh - 62px) !important;
+  }
 
   .spin-loader {
-    width: calc(100% - 280px);
+    width: calc(100vw - 280px);
     height: calc(100vh - 62px) !important;
+  }
+
+  .product-page {
+    display: flex;
+  }
+
+  .about-us {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
   }

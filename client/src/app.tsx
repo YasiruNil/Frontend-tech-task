@@ -8,6 +8,8 @@ import { LoadingOutlined } from "@ant-design/icons";
 import NotFound from "./routes/NotFound";
 import MainPage from "./routes/MainPage";
 import MainLayout from "./layouts/mainLayout/MainLayout";
+import ProductPage from "./routes/ProductPage";
+import SingleProductLayout from "./layouts/SingleProductLayout/SingleProductLayout";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: "/category",
         element: <MainPage />,
+      }
+    ],
+  },
+
+  {
+    path: "/article/:id",
+    element: <SingleProductLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "",
+        element: <ProductPage />,
       },
     ],
   },

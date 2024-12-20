@@ -20,6 +20,7 @@ const initialState = {
 const GET_PRODUCTS = gql`
   {
     categories {
+      id
       name
       urlPath
       articleCount
@@ -28,6 +29,7 @@ const GET_PRODUCTS = gql`
         urlPath
       }
       articles {
+        id
         name
         variantName
         prices {

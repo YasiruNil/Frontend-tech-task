@@ -64,10 +64,18 @@
         }
       }
 
-      .skeleton-wrapper {
-        margin-bottom: 10px;
+      .skeleton {
         display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .skeleton-wrapper {
+          margin-bottom: 10px;
+          display: flex;
+        }
       }
+      
 
       .content-wrapper {
         display: flex;

@@ -39,7 +39,7 @@ export const Sidebar = ({
             Categories
           </span>
           {status === "loading" && (
-            <div>
+            <div className="skeleton">
               {[1, 2, 3, 4, 5].map((_item, indx) => (
                 <div className="skeleton-wrapper" key={indx}>
                   <Skeleton.Node
