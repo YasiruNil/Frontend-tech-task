@@ -15,6 +15,7 @@ const GET_PRODUCTS = gql`
   {
     categories {
       name
+      urlPath
       articleCount
       childCategories {
         name

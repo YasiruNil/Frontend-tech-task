@@ -6,7 +6,7 @@ const ProductCart = ({ cartItem }: any) => {
     <div className="product-cart" key={cartItem.id}>
       <LazyLoadImage
         effect="blur"
-        style={{ display:'flex', justifyContent:'center', alignItems:'center',borderRadius:'20px',width: '200px', height:'200px' }}
+        style={{ display:'flex', justifyContent:'center', alignItems:'center',borderRadius:'20px', height:'160px',maxWidth:'160px',margin:'10px' }}
         src={cartItem.images[0].path}
         alt={cartItem.name}
       />

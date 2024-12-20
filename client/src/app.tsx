@@ -16,6 +16,10 @@ const router = createBrowserRouter([
         path: "",
         element: <MainPage />,
       },
+      {
+        path: "/category",
+        element: <MainPage />,
+      }
     ],
   },
 ]);
@@ -47,7 +51,7 @@ function App() {
       {loading ? (
         <div className="loader">
           <p>Loading...</p>
-          {/* Replace with a spinner or animation if needed */}
+          {/* Replace with a spinner */}
         </div>
       ) : (
         <Providers>
@@ -59,4 +63,3 @@ function App() {
 }
 
 export default App;
-// Removed the conflicting useState function
