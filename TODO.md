@@ -1,0 +1,1 @@
+we need to have a relation between sub categories and articles.then we can have more filteration.
